@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polpette & Pampero | Cocktail Bar & Food a Porto Sant'Elpidio</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Playfair+Display:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brandDark: '#0d0b09',
+                        brandCard: '#171310',
+                        brandBorder: '#2e251e',
+                        copper: '#d97706',
+                        copperLight: '#f59e0b',
+                        neonRed: '#ef4444',
+                        cream: '#fef3c7'
+                    },
+                    fontFamily: {
+                        bebas: ['Bebas Neue', 'sans-serif'],
+                        montserrat: ['Montserrat', 'sans-serif'],
+                        serifHeading: ['Playfair Display', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #0d0b09;
+            color: #fef3c7;
+            overflow-x: hidden;
+        }
+
+        .font-headline {
+            font-family: 'Bebas Neue', cursive, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .hero-bg {
+            background: linear-gradient(180deg, rgba(13, 11, 9, 0.65) 0%, rgba(13, 11, 9, 0.98) 100%),
+                        url('https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+        }
+
+        .glass-card {
+            background: rgba(23, 19, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(217, 119, 6, 0.25);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(245, 158, 11, 0.5);
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(239, 68, 68, 0.6), 0 0 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .amber-glow {
+            box-shadow: 0 0 25px rgba(217, 119, 6, 0.2);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0d0b09;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e251e;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #d97706;
+        }
+
+        .tab-btn.active {
+            background-color: #d97706;
+            color: #0d0b09;
+            font-weight: 700;
+            box-shadow: 0 0 15px rgba(217, 119, 6, 0.4);
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-copper selection:text-black">
+
+    <!-- NAVBAR E HEADER FISSO -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-brandDark/90 backdrop-blur-md border-b border-brandBorder px-4 lg:px-8 py-3 transition-all duration-300">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Logo Brand -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-br from-copper to-amber-800 flex items-center justify-center text-brandDark font-extrabold text-xl border border-amber-400 shadow-md">
+                    <i class="fa-solid fa-drumstick-bite"></i>
+                </div>
+                <div>
+                    <span class="font-headline text-2xl tracking-wider text-amber-400 group-hover:text-amber-300 transition-colors block leading-none">
+                        POLPETTE & PAMPERO
+                    </span>
+                    <span class="text-[10px] text-gray-400 tracking-widest uppercase block mt-0.5">Street Food & Cocktail Bar</span>
+                </div>
+            </a>
+
+            <!-- Menu di Navigazione Desktop -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-amber-100/80">
+                <a href="#chi-siamo" class="hover:text-copper transition-colors">La Storia</a>
+                <a href="#menu" class="hover:text-copper transition-colors">Il Menù</a>
+                <a href="#recensioni" class="hover:text-copper transition-colors">Recensioni (4.5★)</a>
+                <a href="#info" class="hover:text-copper transition-colors">Dove Siamo</a>
+            </nav>
+
+            <!-- Call To Action Chiamata Rapida -->
+            <div class="flex items-center gap-3">
+                <a href="tel:+393383740544" class="bg-gradient-to-r from-copper to-amber-500 hover:from-amber-500 hover:to-copper text-brandDark font-extrabold px-4 sm:px-5 py-2 rounded-xl text-xs sm:text-sm transition-all shadow-md flex items-center gap-2">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="hidden sm:inline">Chiama ora</span>
+                    <span class="sm:hidden">Chiama</span>
+                </a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- HERO SECTION BANNER -->
+    <section class="relative min-h-screen flex items-center justify-center hero-bg border-b border-brandBorder px-4 pt-20">
+        <div class="relative z-10 text-center max-w-4xl mx-auto py-12">
+            
+            <!-- Badge Posizione -->
+            <div class="inline-flex items-center gap-2 bg-copper/10 border border-copper/30 px-4 py-1.5 rounded-full text-amber-400 text-xs font-semibold tracking-wider uppercase mb-6 backdrop-blur-md">
+                <i class="fa-solid fa-location-dot text-neonRed"></i> Via C. Battisti 52, Porto Sant'Elpidio
+            </div>
+
+            <h1 class="font-headline text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-cream mb-4 leading-none">
+                GUSTO ARTIGIANALE & <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-copper to-amber-500">
+                    MIXOLOGY DI CARATTERE
+                </span>
+            </h1>
+
+            <p class="text-gray-300 text-base sm:text-xl font-light max-w-2xl mx-auto mb-10 leading-relaxed">
+                Le famose polpette fatte in casa, carne alla griglia selezionata, pinse romane ad alta idratazione e i migliori cocktail a base di Pampero.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="tel:+393383740544" class="w-full sm:w-auto bg-copper hover:bg-amber-500 text-brandDark font-extrabold px-8 py-4 rounded-xl text-base transition-all shadow-lg hover:shadow-copper/40 flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <span>Chiama 338 374 0544</span>
+                </a>
+
+                <a href="#menu" class="w-full sm:w-auto bg-brandCard hover:bg-brandDark text-amber-200 border border-copper/40 font-semibold px-8 py-4 rounded-xl text-base transition-all flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-book-open text-copper"></i>
+                    <span>Sfoglia il Menù</span>
+                </a>
+
+                <a href="https://www.google.com/maps/place/Polpette+%26+Pampero/@43.261,13.756" target="_blank" class="w-full sm:w-auto bg-brandCard/60 hover:bg-brandCard text-gray-300 border border-brandBorder font-medium px-6 py-4 rounded-xl text-base transition-all flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-map-location-dot text-amber-400"></i>
+                    <span>Indicazioni Maps</span>
+                </a>
+            </div>
+
+            <!-- Card Punti di Forza Rapidi -->
+            <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto pt-8 border-t border-brandBorder/60 text-left">
+                <div class="p-3 rounded-xl bg-brandCard/60 border border-brandBorder/50">
+                    <div class="text-copper text-lg mb-1"><i class="fa-solid fa-star"></i> 4,5 / 5.0</div>
+                    <div class="text-xs text-gray-300 font-bold">380 Recensioni Google</div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-brandCard/60 border border-brandBorder/50">
+                    <div class="text-copper text-lg mb-1"><i class="fa-solid fa-[#]"></i> 10 - 30 €</div>
+                    <div class="text-xs text-gray-300 font-bold">Prezzo Medio a Persona</div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-brandCard/60 border border-brandBorder/50">
+                    <div class="text-copper text-lg mb-1"><i class="fa-solid fa-clock"></i> 18:00 - 01:00</div>
+                    <div class="text-xs text-gray-300 font-bold">Aperto dal Martedì alla Domenica</div>
+                </div>
+
+                <div class="p-3 rounded-xl bg-brandCard/60 border border-brandBorder/50">
+                    <div class="text-copper text-lg mb-1"><i class="fa-solid fa-bag-shopping"></i> Asporto & Tavoli</div>
+                    <div class="text-xs text-gray-300 font-bold">Consumazione sul posto e Take Away</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CHI SIAMO / CONCETTO -->
+    <section id="chi-siamo" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="relative">
+                <div class="relative rounded-3xl overflow-hidden border border-copper/30 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Polpette e Pampero Atmosfera" class="w-full h-[450px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-brandDark via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 p-6 glass-card rounded-2xl">
+                        <span class="text-xs text-copper font-bold uppercase tracking-wider block mb-1">Il Nostro Marchio di Fabbrica</span>
+                        <h4 class="font-headline text-2xl text-cream">Polpette Artigianali e Rum Selezione</h4>
+                        <p class="text-xs text-gray-300 mt-1">Dalla ricetta tradizionale di carne al sugo fino agli abbinamenti gourmet e drink pestati.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <span class="text-copper font-mono text-xs uppercase tracking-widest block mb-2">Unico a Porto Sant'Elpidio</span>
+                <h2 class="font-headline text-4xl sm:text-5xl font-bold text-cream mb-6 leading-tight">
+                    DOVE IL BUON CIBO INCONTRA <br>
+                    <span class="text-amber-400">LA BUONA CORTESIA</span>
+                </h2>
+
+                <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                    <strong>Polpette & Pampero</strong> nasce dal desiderio di offrire un'esperienza informale ma curata nei minimi dettagli. Che tu stia cercando una cena completa a base di carne di alta qualità, una pinsa croccante, un hamburger succulento o semplicemente un drink preparato a regola d'arte dopo il lavoro, qui troverai un'atmosfera calda e accogliente.
+                </p>
+
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="p-4 rounded-xl bg-brandCard border border-brandBorder">
+                        <i class="fa-solid fa-bowl-food text-copper text-xl mb-2 block"></i>
+                        <h5 class="text-sm font-bold text-amber-200">Polpette Signature</h5>
+                        <p class="text-xs text-gray-400 mt-1">Al sugo, fritte, di carne o vegetariane preparate ogni giorno.</p>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-brandCard border border-brandBorder">
+                        <i class="fa-solid fa-glass-water-droplet text-copper text-xl mb-2 block"></i>
+                        <h5 class="text-sm font-bold text-amber-200">Cocktail & Rum</h5>
+                        <p class="text-xs text-gray-400 mt-1">Mixology d'autore con focus speciale sulla linea Pampero.</p>
+                    </div>
+                </div>
+
+                <div class="p-4 rounded-xl bg-copper/10 border border-copper/30 flex items-center gap-4">
+                    <i class="fa-solid fa-heart text-amber-400 text-2xl"></i>
+                    <div>
+                        <span class="text-xs font-bold text-amber-200 block">"Oltre che super disponibili, fanno hamburger e patatine ottimi!"</span>
+                        <span class="text-[11px] text-gray-400">— Recensione recente di una cliente felice</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- MENU INTERATTIVO -->
+    <section id="menu" class="py-20 bg-brandCard/50 border-y border-brandBorder px-4">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-copper font-mono text-xs uppercase tracking-widest block mb-2">Proposte del Giorno</span>
+                <h2 class="font-headline text-4xl sm:text-6xl font-bold text-cream mb-4">Il Nostro Menù</h2>
+                <p class="text-gray-400 text-sm">
+                    Dai piatti tradizionali marchigiani alle rivisitazioni street food moderne.
+                </p>
+            </div>
+
+            <!-- Tab Selettore Categoria -->
+            <div class="flex justify-center gap-2 mb-10 overflow-x-auto pb-2">
+                <button onclick="switchCategory('polpette')" id="tab-polpette" class="tab-btn active px-6 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                    🧆 Polpette & Fritti
+                </button>
+                <button onclick="switchCategory('pinse')" id="tab-pinse" class="tab-btn bg-brandDark text-gray-300 border border-brandBorder px-6 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                    🍕 Pinse Gourmet
+                </button>
+                <button onclick="switchCategory('burger')" id="tab-burger" class="tab-btn bg-brandDark text-gray-300 border border-brandBorder px-6 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                    🍔 Burger & Tagliata
+                </button>
+                <button onclick="switchCategory('cocktails')" id="tab-cocktails" class="tab-btn bg-brandDark text-gray-300 border border-brandBorder px-6 py-2.5 rounded-xl text-sm font-semibold transition-all">
+                    🍹 Cocktails & Pampero
+                </button>
+            </div>
+
+            <!-- GRUPPO 1: POLPETTE & FRITTI -->
+            <div id="cat-polpette" class="menu-group grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h4 class="font-headline text-2xl text-amber-200">Giostra di Fritti Misti</h4>
+                            <span class="text-[10px] bg-copper/20 text-amber-400 px-2 py-0.5 rounded font-bold">Consigliato</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Selezione artigianale di olive all'ascolana, cremini marchigiani, anelli di cipolla croccanti e patate fritte speziate.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 12.00</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Polpette della Nonna al Sugo</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Polpette di carne mista bovina e suina cotte lentamente nel pomodoro San Marzano DOP, servite con crostoni di pane bruscato.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 9.50</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Polpette Croccanti al Formaggio</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Bocconcini di polpette fritte impanate nei panko con cuore di provola affumicata fusa.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 9.00</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Verdure Grigliate & Patate al Forno</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Contorno ricco di stagione grigliato sul momento con patate novelle arrostite al rosmarino.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 6.00</span>
+                </div>
+
+            </div>
+
+            <!-- GRUPPO 2: PINSE GOURMET (Nascosto di default) -->
+            <div id="cat-pinse" class="menu-group hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Pinsa Pampero Special</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Impasto ad alta idratazione 72h, fiordilatte, ciauscolo IGP marchigiano, stracchino cremoso e rucola.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 11.50</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Pinsa Tartufata</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Mozzarella di bufala, salsa al tartufo nero estivo, funghi porcini e scaglie di grana parmigiano.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 13.00</span>
+                </div>
+
+            </div>
+
+            <!-- GRUPPO 3: BURGER & CARNE (Nascosto di default) -->
+            <div id="cat-burger" class="menu-group hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Hamburger Gourmet P&P</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            200g di carne sceltissima, bacon croccante, cheddar fuso, anelli di cipolla e patatine fritte incluse.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 12.50</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Tagliata di Carne Sceltissima</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Tagliata di manzo di prima qualità servita su letto di rucola, pomodorini e scaglie di grana con riduzione di aceto balsamico.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 18.00</span>
+                </div>
+
+            </div>
+
+            <!-- GRUPPO 4: COCKTAILS & PAMPERO (Nascosto di default) -->
+            <div id="cat-cocktails" class="menu-group hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <h4 class="font-headline text-2xl text-amber-200">Pampero Mojito Special</h4>
+                            <span class="text-[10px] bg-neonRed/20 text-neonRed px-2 py-0.5 rounded font-bold">Signature</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Rum Pampero Aniversario, lime fresco pestato, menta biologica, zucchero di canna grezzo e soda.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 8.00</span>
+                </div>
+
+                <div class="glass-card p-6 rounded-2xl flex justify-between items-start">
+                    <div>
+                        <h4 class="font-headline text-2xl text-amber-200">Rum Pampero Selección Riserva</h4>
+                        <p class="text-xs text-gray-300 mt-2 leading-relaxed">
+                            Servito liscio o con ghiaccio in balloon con scaglie di cioccolato fondente 85%.
+                        </p>
+                    </div>
+                    <span class="font-headline text-2xl text-copper font-bold ml-4">€ 7.00</span>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- RECENSIONI GOOGLE MAPS -->
+    <section id="recensioni" class="py-20 px-4 max-w-7xl mx-auto">
+        <div class="text-center max-w-2xl mx-auto mb-12">
+            <div class="flex justify-center items-center gap-1 text-amber-400 text-2xl mb-2">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <h2 class="font-headline text-4xl sm:text-5xl font-bold text-cream">4.5 / 5.0 su Google Maps</h2>
+            <p class="text-gray-400 text-sm mt-1">Cosa dicono di noi oltre 380 clienti verificate su Porto Sant'Elpidio</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="glass-card p-6 rounded-2xl relative">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-copper/20 flex items-center justify-center font-bold text-copper">
+                        F
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-amber-200">Francesca Di Liberto</h5>
+                        <div class="text-xs text-amber-400">★★★★★ • 1 mese fa</div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed italic">
+                    "Sono appena stata in questo locale con mio figlio, oltre ad essere super disponibili, fanno hamburger e patatine ottimi! Grazie per averlo reso felice, visto che stavate per chiudere la cucina!! Se potessi metterei più stelle!!!!"
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl relative">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-copper/20 flex items-center justify-center font-bold text-copper">
+                        A
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-amber-200">Ania Hallmann</h5>
+                        <div class="text-xs text-amber-400">★★★★★ • Local Guide</div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed italic">
+                    "Abbiamo assaggiato polpette al sugo, anelli di cipolla, patate al forno, verdura grigliata e tagliata di carne. Devo dire che la qualità della carne e del servizio è stata ottima!"
+                </p>
+            </div>
+
+            <div class="glass-card p-6 rounded-2xl relative">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="w-10 h-10 rounded-full bg-copper/20 flex items-center justify-center font-bold text-copper">
+                        G
+                    </div>
+                    <div>
+                        <h5 class="text-sm font-bold text-amber-200">Giulia M.</h5>
+                        <div class="text-xs text-amber-400">★★★★★ • Local Guide</div>
+                    </div>
+                </div>
+                <p class="text-xs text-gray-300 leading-relaxed italic">
+                    "Abbiamo preso una giostra di fritti come antipasto, davvero ottimi e carina la presentazione, poi tre pinse a gusti diversi. Il personale è sempre cordiale e giovanile!"
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- INFORMAZIONI PRATICHE & MAPPA -->
+    <section id="info" class="py-20 bg-brandCard border-t border-brandBorder px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-12">
+            
+            <!-- Orari & Contatti -->
+            <div>
+                <span class="text-copper font-mono text-xs uppercase tracking-widest block mb-2">Orari & Contatti</span>
+                <h3 class="font-headline text-3xl font-bold text-cream mb-6">Vieni a Trovarci</h3>
+
+                <ul class="space-y-4 text-sm text-gray-300 mb-8">
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-location-dot text-copper text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-amber-200 block">Indirizzo:</strong>
+                            Via C. Battisti, 52, 63821 Porto Sant'Elpidio FM
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-phone text-copper text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-amber-200 block">Telefono per Prenotazioni / Asporto:</strong>
+                            <a href="tel:+393383740544" class="text-copper font-bold hover:underline">338 374 0544</a>
+                        </div>
+                    </li>
+
+                    <li class="flex items-start gap-3">
+                        <i class="fa-solid fa-clock text-copper text-lg mt-1"></i>
+                        <div>
+                            <strong class="text-amber-200 block">Orario di Apertura:</strong>
+                            <span>Martedì - Domenica: 18:00 - 01:00</span> <br>
+                            <span class="text-neonRed text-xs">Lunedì: Chiuso per riposo settimanale</span>
+                        </div>
+                    </li>
+                </ul>
+
+                <a href="tel:+393383740544" class="w-full bg-copper hover:bg-amber-500 text-brandDark font-extrabold py-3.5 rounded-xl text-center block text-sm transition-all shadow-md">
+                    Chiama per Prenotare un Tavolo
+                </a>
+            </div>
+
+            <!-- Mappa Statica con collegamento Google Maps -->
+            <div class="lg:col-span-2 relative rounded-3xl overflow-hidden border border-brandBorder min-h-[300px]">
+                <iframe 
+                    title="Mappa Polpette e Pampero"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2915.289123891!2d13.756!3d43.261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133212cebf2c619f%3A0x0!2sVia+C.+Battisti%2C+52%2C+63821+Porto+Sant'Elpidio+FM!5e0!3m2!1sit!2sit!4v1620000000000!5m2!1sit!2sit" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0; min-height: 350px;" 
+                    allowfullscreen="" 
+                    loading="lazy">
+                </iframe>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-8 bg-brandDark border-t border-brandBorder text-center text-xs text-gray-500 px-4">
+        <p>© 2026 Polpette & Pampero • Via C. Battisti 52, Porto Sant'Elpidio (FM) • Tel: 338 374 0544</p>
+        <p class="mt-1">P.IVA / Dati societari consultabili in sede • Progetto di restyling digitale per presenza online</p>
+    </footer>
+
+    <!-- SCRIPT JS INTERATTIVO -->
+    <script>
+        function switchCategory(category) {
+            // Nascendi tutti i gruppi
+            const groups = document.querySelectorAll('.menu-group');
+            groups.forEach(g => g.classList.add('hidden'));
+
+            // Resetta stile tutti i bottoni
+            const tabs = document.querySelectorAll('.tab-btn');
+            tabs.forEach(t => {
+                t.classList.remove('active');
+                t.classList.add('bg-brandDark', 'text-gray-300');
+            });
+
+            // Attiva categoria selezionata
+            document.getElementById(`cat-${category}`).classList.remove('hidden');
+
+            // Attiva bottone selezionato
+            const activeTab = document.getElementById(`tab-${category}`);
+            activeTab.classList.add('active');
+            activeTab.classList.remove('bg-brandDark', 'text-gray-300');
+        }
+    </script>
+</body>
+</html>
